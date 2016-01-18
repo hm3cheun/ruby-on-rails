@@ -8,6 +8,14 @@ def new
     @article = Article.new
 end
 
+def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+    flash[:danger]= "Article deleted"
+    redirect_to articles_path
+end
+
+
 
 def create
     #render plain: params[:article].inspect
@@ -15,7 +23,7 @@ def create
     #@article.save
     #redirect_to articles_show(@article)
     if @article.save
-        flash[:notice]= "Article was successfully created"
+        flash[:success]= "Article was successfully created"
         redirect_to article_path(@article)
         
     else
@@ -29,9 +37,9 @@ def edit
 end
 
 def update
-     @article = Article.find(params[:id])
+    @article = Article.find(params[:id])
     if @article.update(article_params)
-        flash[:notice]= "Article was successfully update"
+        flash[:success]= "Article was successfully update"
         redirect_to article_path(@article)
         
     else
