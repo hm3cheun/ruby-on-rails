@@ -1,0 +1,15 @@
+<div class="article-comments">
+<h6>Comments</h6>
+<% @article.comments.each do |comment| %>
+<p>
+<strong>Commenter:</strong>
+<%= comment.commenter %>
+</p>
+<p>
+<strong>Comment:</strong>
+<%= comment.body %>
+</p>
+<% end %>
+
+
+</div>
