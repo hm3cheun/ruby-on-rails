@@ -19,7 +19,9 @@ end
 
 def create
     #render plain: params[:article].inspect
+    debugger
     @article = Article.new(article_params)
+    @article.user = User.first
     #@article.save
     #redirect_to articles_show(@article)
     if @article.save
