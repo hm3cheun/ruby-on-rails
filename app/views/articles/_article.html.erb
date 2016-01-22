@@ -10,7 +10,7 @@
                   Last Updated : <%= time_ago_in_words(article.updated_at) %> ago
                  </div>
              </div>
-       <% if logged_in? && article.user == current_user %>
+       <% if logged_in? && (article.user == current_user || current_user.admin?) %>
        <div class="article-action">
        <%= link_to 'Read More..', article_path(article) , class:"btn btn-xs btn-success"  %>
        <%= link_to 'Edit', edit_article_path(article), class:"btn btn-xs btn-primary"  %>
